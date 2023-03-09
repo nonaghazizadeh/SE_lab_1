@@ -219,3 +219,56 @@ function unpin() {
     }
     parent.removeChild(item);
 }
+
+function doneFunc() {
+    var item = this.parentNode.parentNode.parentNode;
+    var parent = item.parentNode;
+    donning(parent, item);
+  }
+  
+function secondDoneFunc() {
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode;
+    donning(parent, item);
+}
+  
+function donning(parent, item) {
+    prioritySection = parent.getAttribute('class').split(" ")[2];
+  
+    clonedTask = item.cloneNode(true);
+    inner = clonedTask.lastElementChild;
+    firstButton = clonedTask.lastElementChild.lastElementChild;
+    inner.removeChild(firstButton);
+    
+    secondButton = clonedTask.lastElementChild.children[1];
+    inner.removeChild(secondButton);
+    text = clonedTask.lastElementChild.children[0];
+    text.style.textDecoration = "line-through";
+  
+    secondButtonContainer = document.createElement('div');
+    secondButtonContainer.className = 'col-2';
+    secondButton = document.createElement('button');
+    secondButton.className = 'btn';
+    secondButton.className += ' btn-sm';
+    secondButton.className += ' btn-light';
+    iconForSecondButton = document.createElement('i');
+    iconForSecondButton.className = 'fa';
+    iconForSecondButton.className += ' fa-times';
+    secondButton.addEventListener('click', undone);
+    secondButton.appendChild(iconForSecondButton);
+    clonedTask.lastElementChild.appendChild(secondButton);
+    if (prioritySection === 'high-container' || prioritySection === 'high-container-pin') {
+      let doneList = document.querySelector('.high-container-done');
+      doneList.appendChild(clonedTask);
+    }
+    else if (prioritySection === 'medium-container' || prioritySection === 'medium-container-pin') {
+      let doneList = document.querySelector('.medium-container-done');
+      doneList.appendChild(clonedTask);
+    }
+    else if (prioritySection === 'low-container' || prioritySection === 'low-container-pin') {
+      let doneList = document.querySelector('.low-container-done');
+      doneList.appendChild(clonedTask);
+    }
+  
+    parent.removeChild(item);
+}

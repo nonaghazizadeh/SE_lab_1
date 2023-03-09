@@ -6,3 +6,6 @@
 /assets/js/jquery-3.3.1.slim.min.js
 /assets/js/popper.min.js
 /assets/js/popper.min.js.map
+# Ignore fontawesome files
+/assets/css/font-awesome.css
+/assets/fonts/fontawesome-webfont.woff2

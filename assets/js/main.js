@@ -55,6 +55,13 @@ document.querySelector('#filter-blue').addEventListener("click", function () {
     }
 })
 
+document.querySelector('#remove-filter').addEventListener("click", function () {
+    var tasks = document.querySelectorAll(".task .desc");
+    for (i = 0; i < tasks.length; i++){
+      tasks[i].style.display = "block";
+    }
+})
+
 document.querySelector('#add').addEventListener("click", function () {
     var name = document.querySelector("#input-name").value;
     if (name != "") {

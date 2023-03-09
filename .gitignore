@@ -9,3 +9,5 @@
 # Ignore fontawesome files
 /assets/css/font-awesome.css
 /assets/fonts/fontawesome-webfont.woff2
+# Ignore css.map file for custom css
+/assets/sass/styles.css.map

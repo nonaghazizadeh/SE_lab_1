@@ -189,3 +189,33 @@ function pinning(parent, item) {
     }
     parent.removeChild(item);
 }
+
+function unpin() {
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode;
+      
+    prioritySection = parent.getAttribute('class').split(" ")[2];
+    if (prioritySection === 'high-container-pin') {
+      let pinList = document.querySelector(".high-container");
+      pinList.appendChild(item.cloneNode(true));
+      btnWrapper = pinList.lastElementChild.lastElementChild;
+      btnWrapper.children[1].addEventListener('click', secondPinFunc);
+      btnWrapper.children[2].addEventListener('click', secondDoneFunc);
+  
+    }
+    else if (prioritySection === 'medium-container-pin') {
+      let pinList = document.querySelector(".medium-container");
+      pinList.appendChild(item.cloneNode(true));
+      btnWrapper = pinList.lastElementChild.lastElementChild;
+      btnWrapper.children[1].addEventListener('click', secondPinFunc);
+      btnWrapper.children[2].addEventListener('click', secondDoneFunc);
+    }
+    else if (prioritySection === 'low-container-pin') {
+      let pinList = document.querySelector(".low-container");
+      pinList.appendChild(item.cloneNode(true));
+      btnWrapper = pinList.lastElementChild.lastElementChild;
+      btnWrapper.children[1].addEventListener('click', secondPinFunc);
+      btnWrapper.children[2].addEventListener('click', secondDoneFunc);
+    }
+    parent.removeChild(item);
+}

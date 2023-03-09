@@ -22,6 +22,19 @@ h6 {
   border-radius: 15px;
 }
 
+.btn {
+  border-radius: 10px;
+}
+
+.input-box {
+  border-radius: 10px;
+}
+
+.input-box:focus{
+  border-color: none;
+  box-shadow: none;
+}
+
 .page-todo .tasks {
   background: #f8f9fa;
   padding: 0;

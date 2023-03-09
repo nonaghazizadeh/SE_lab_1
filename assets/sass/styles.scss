@@ -12,6 +12,7 @@ h6 {
   margin-top: 20px;
   line-height: 2;
 }
+
 .btn-default:focus {
   outline: none;
   box-shadow: none;
@@ -22,6 +23,19 @@ h6 {
   height: 30px;
   padding: 6px 0px;
   border-radius: 15px;
+}
+
+.btn {
+  border-radius: 10px;
+}
+
+.input-box {
+  border-radius: 10px;
+}
+
+.input-box:focus{
+  border-color: none;
+  box-shadow: none;
 }
 
 .page-todo {

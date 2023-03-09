@@ -272,3 +272,58 @@ function donning(parent, item) {
   
     parent.removeChild(item);
 }
+
+function undone() {
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode;
+    prioritySection = parent.getAttribute('class').split(" ")[2];
+    clonedTask = item.cloneNode(true);
+    inner = clonedTask.lastElementChild;
+    inner.removeChild(clonedTask.lastElementChild.lastElementChild);
+    inner.lastElementChild.style.textDecoration = "none";
+  
+    firstButtonContainer = document.createElement('div');
+    firstButtonContainer.className = 'col-1';
+    firstButton = document.createElement('button');
+    firstButton.className = 'btn';
+    firstButton.className += ' btn-sm';
+    firstButton.className += ' btn-light';
+    firstButton.className += ' pin';
+    iconForFirstButton = document.createElement('i');
+    iconForFirstButton.className = 'fa';
+    iconForFirstButton.className += ' fa-map-pin';
+    firstButton.addEventListener('click', pinFunc);
+    firstButton.appendChild(iconForFirstButton);
+    firstButtonContainer.appendChild(firstButton);
+  
+    secondButtonContainer = document.createElement('div');
+    secondButtonContainer.className = 'col-1';
+    secondButtonContainer.className += ' pl-2';
+    secondButton = document.createElement('button');
+    secondButton.className = 'btn';
+    secondButton.className += ' btn-sm';
+    secondButton.className += ' btn-light';
+    secondButton.className += ' done';
+    iconForSecondButton = document.createElement('i');
+    iconForSecondButton.className = 'fa';
+    iconForSecondButton.className += ' fa-check';
+    secondButton.addEventListener('click', doneFunc);
+    secondButton.appendChild(iconForSecondButton);
+    secondButtonContainer.appendChild(secondButton);
+    clonedTask.lastElementChild.appendChild(firstButtonContainer);
+    clonedTask.lastElementChild.appendChild(secondButtonContainer);
+  
+    if (prioritySection === 'high-container-done') {
+      let list = document.querySelector(".high-container");
+      list.appendChild(clonedTask);
+    }
+    else if (prioritySection === 'medium-container-done') {
+      let list = document.querySelector(".medium-container");
+      list.appendChild(clonedTask);
+    }
+    else if (prioritySection === 'low-container-done') {
+      let list = document.querySelector(".low-container");
+      list.appendChild(clonedTask);
+    }
+    parent.removeChild(item);
+}

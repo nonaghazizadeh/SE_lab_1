@@ -15,6 +15,15 @@ Array.from(colors).forEach((col) => {
   col.addEventListener('click', (event) => {
     color = col.textContent;
     color = color.toLowerCase();
+    if (color == 'red'){
+      color = '#dc3545'
+    }
+    else if (color == 'blue'){
+      color = '#17a2b8'
+    }
+    else if (color == 'green'){
+      color = '#28a745'
+    }
     document.querySelector('.color-selected').innerHTML = col.textContent;
   });
 });
